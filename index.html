@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error 404</title>
+
+  <!-- Cute bubbly font -->
+  <link href="https://fonts.googleapis.com/css2?family=Soulshine&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    /* Shared full screen pages */
+    .screen {
+      height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Page 1: Fake 404 */
+    .page1 {
+      display: flex;
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .error-box {
+      max-width: 520px;
+    }
+
+    .error-box h1 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .error-box p {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .error-box a {
+      color: #0645AD;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Page 2: Valentine question */
+    .page2 {
+      background: #fff0f5;
+      flex-direction: column;
+    }
+
+    .valentine-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .emoji {
+      font-size: 80px;
+    }
+
+    .valentine-text {
+      font-size: 36px;
+      font-family: "Poppins", "Comic Sans MS", cursive;
+      color: #ff4d6d;
+      margin: 10px 0;
+    }
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .yes-btn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no-btn {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    /* Page 3: Crying screen */
+    .page3 {
+      background: #f0f4ff;
+      flex-direction: column;
+    }
+
+    .cry-emoji {
+      font-size: 120px;
+      margin-bottom: 20px;
+    }
+
+    .repair-btn {
+      background: #ffb3c6;
+      color: #000;
+    }
+
+    /* Page 4: Love screen */
+    .page4 {
+      background: #fff7e6;
+      flex-direction: column;
+    }
+
+    .love-text {
+      font-family: "Soulshine", cursive;
+      font-size: 56px;
+      color: #ff4d6d;
+      margin-top: 16px;
+    }
+
+    .big-emoji {
+      font-size: 120px;
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 480px) {
+      .valentine-text {
+        font-size: 28px;
+      }
+      .emoji {
+        font-size: 64px;
+      }
+      .love-text {
+        font-size: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div class="screen page1" id="page1">
+    <div class="error-box">
+      <h1>Error 404 : Too much cuteness identified in the user.</h1>
+      <p>System might explode. <a onclick="goToPage2()">Continue anyway?</a></p>
+    </div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="screen page2" id="page2">
+    <div class="valentine-container">
+      <div class="emoji">💘</div>
+      <div>
+        <div class="valentine-text">Will you be my Valentine?</div>
+        <div class="buttons">
+          <button class="yes-btn" onclick="yesClicked()">Yes</button>
+          <button class="no-btn" onclick="noClicked()">No</button>
+        </div>
+      </div>
+      <div class="emoji">🌼</div>
+    </div>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="screen page3" id="page3">
+    <div class="cry-emoji">🥺</div>
+    <button class="repair-btn" onclick="goToPage2()">un-break heart?</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="screen page4" id="page4">
+    <div class="big-emoji">💐</div>
+    <div class="love-text">I love you</div>
+  </div>
+
+  <script>
+    function show(id) {
+      document.querySelectorAll('.screen').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function goToPage2() {
+      show('page2');
+      document.title = 'Be My Valentine';
+    }
+
+    function yesClicked() {
+      show('page4');
+      document.title = 'I Love You';
+    }
+
+    function noClicked() {
+      show('page3');
+      document.title = '💔';
+    }
+
+    // start on page 1
+    show('page1');
+  </script>
+
+</body>
+</html>
